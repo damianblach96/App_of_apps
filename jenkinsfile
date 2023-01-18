@@ -70,8 +70,6 @@ pipeline {
                 }
             }
         }
-        stage('Run Docker') {
-            steps {
     }
     post {
         always {
