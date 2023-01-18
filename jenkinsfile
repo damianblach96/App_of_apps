@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     withEnv(["FRONTEND_IMAGE=$frontendImage:$frontendDockerTag", "BACKEND_IMAGE=$backendImage:$backendDockerTag"]) {
-                        docker.withRegistry("$dockerRegistry", "$RegistryCredentials") {
+                        docker.withRegistry("$dockerRegistry", "$registryCredentials") {
                             sh "docker-compose up -d"
                         }
                     }
