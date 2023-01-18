@@ -10,7 +10,7 @@ pipeline {
         label 'agent'
     }
     tools {
-        terraform 'Terraform'
+        terraform 'Terraform1'
     }
     stages {
         stage('Get Code') {
@@ -70,6 +70,8 @@ pipeline {
                 }
             }
         }
+        stage('Run Docker') {
+            steps {
     }
     post {
         always {
