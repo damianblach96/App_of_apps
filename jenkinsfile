@@ -12,6 +12,9 @@ pipeline {
     tools {
         terraform 'Terraform1'
     }
+    options {
+        ansiColor('xterm')
+    }
     stages {
         stage('Get Code') {
             steps {
