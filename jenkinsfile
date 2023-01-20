@@ -52,7 +52,7 @@ pipeline {
         stage('Run terraform') {
             steps {
                 dir('Terraform') {                
-                    git branch: 'main', url: 'https://github.com/damianblach96/Terraform'
+                    git branch: 'master', url: 'https://github.com/damianblach96/Terraform'
                     withAWS(credentials:'AWS', region: 'us-east-1') {
                             sh 'terraform init && terraform apply -auto-approve -var-file="terraform.tfvars"'
                     } 
@@ -74,7 +74,7 @@ pipeline {
     post {
         always {
             sh "docker-compose down"
-            cleanWS()
+            cleanWs()
         }
     }
 }
