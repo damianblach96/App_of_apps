@@ -3,7 +3,7 @@ def backendImage="damianblach/backend"
 def backendDockerTag=""
 def frontendDockerTag=""
 def dockerRegistry=""
-def registryCredentials="20c7b3a4-3dc7-4808-a43e-6a7057c872cb"
+def registryCredentials="dockerhub"
 
 pipeline {
     agent {
@@ -53,7 +53,7 @@ pipeline {
             steps {
                 dir('Terraform') {                
                     git branch: 'main', url: 'https://github.com/damianblach96/Terraform'
-                    withAWS(credentials:'26c1f5ec-3fc3-441b-9a3e-3a1fd0099ee4', region: 'us-east-1') {
+                    withAWS(credentials:'AWS', region: 'us-east-1') {
                             sh 'terraform init && terraform apply -auto-approve -var-file="terraform.tfvars"'
                     } 
                 }
